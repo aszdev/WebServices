@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="Cliente">
+      <implementation-class>org.servicios.Cliente</implementation-class>
+    </service>
+    <service name="Rol">
+      <implementation-class>org.servicios.Rol</implementation-class>
+    </service>
+    <service name="Usuario">
+      <implementation-class>org.servicios.Usuario</implementation-class>
+    </service>
+  </services>
+  <clients/>
+  <jsr109>false</jsr109>
+</jax-ws>
