@@ -28,7 +28,7 @@ public class DaoProductoTienda implements  CrudProductoTienda{
    
     @Override
     public List produtoTienda(int tienda, String producto) {
-        ArrayList<String> lsProdTienda = new ArrayList<>();
+        ArrayList<ModeloPrueba> lsProdTienda = new ArrayList<>();
             try {            
             strSql = " exec usp_rptProductoTiendaWeb "+tienda+",'"+producto+"'";
              System.out.println(strSql);
@@ -49,7 +49,7 @@ public class DaoProductoTienda implements  CrudProductoTienda{
                */
 
                                 
-             lsProdTienda.add(rs.getString(1));
+             lsProdTienda.add(mt);
             }
             rs.close();
             conexion.close();
