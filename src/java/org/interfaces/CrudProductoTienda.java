@@ -12,12 +12,6 @@ import org.modelos.ModeloUsuario;
  * @author Administrador
  */
 public interface CrudProductoTienda {
-    
-    public List listartodos();
-    public ModeloUsuario listaruno (int id);
-    public boolean insertar(ModeloUsuario usuario);
-    public boolean modificar(ModeloUsuario usuario);
-    public boolean eliminar(ModeloUsuario usuario);
-    public int loguear(String user, String pass);
+ 
     public List produtoTienda(int tienda,String producto);
 }

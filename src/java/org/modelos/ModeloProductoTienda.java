@@ -10,6 +10,14 @@ package org.modelos;
  * @author Administrador
  */
 public class ModeloProductoTienda {
+private String Nit;
+private String nombretienda;
+private String direccion;
+private String codigoprod;
+private String descripcion;
+private int stock;
+private double precioCompra;
+private double precioVenta;
 
     /**
      * @return the Nit
@@ -123,14 +131,6 @@ public class ModeloProductoTienda {
         this.precioVenta = precioVenta;
     }
 
-private String Nit;
-private String nombretienda;
-private String direccion;
-private String codigoprod;
-private String descripcion;
-private int stock;
-private double precioCompra;
-private double precioVenta;
 
 
 }

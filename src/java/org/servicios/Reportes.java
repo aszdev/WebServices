@@ -18,21 +18,14 @@ import org.modelos.ModeloProductoTienda;
  */
 @WebService(serviceName = "Reportes")
 public class Reportes {
-
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
-
+   private  DaoProductoTienda daoProdTienda = new DaoProductoTienda();
+    
     /**
      * Web service operation
      */
     @WebMethod(operationName = "ProductoTienda")
     public List ProductoTienda(@WebParam(name = "codtienda") int codtienda, @WebParam(name = "codprod") String codprod) {
-         DaoProductoTienda daoProdTienda = new DaoProductoTienda();
+        
         return daoProdTienda.produtoTienda(codtienda, codprod);
     }
 }

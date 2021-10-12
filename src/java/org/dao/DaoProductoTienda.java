@@ -13,10 +13,6 @@ import java.util.logging.Logger;
 import org.config.Conexion;
 import org.interfaces.CrudProductoTienda;
 import org.modelos.ModeloProductoTienda;
-import org.modelos.ModeloUsuario;
-
-
-
 
 
 public class DaoProductoTienda implements  CrudProductoTienda{
@@ -30,36 +26,22 @@ public class DaoProductoTienda implements  CrudProductoTienda{
     ResultSet rs = null;
     //flag para retornar si la sentencia SQL fue satisfactorio o no
     boolean respuesta = false;
-    
-    @Override
-    public boolean insertar(ModeloUsuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean modificar(ModeloUsuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean eliminar(ModeloUsuario usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     @Override
     public List produtoTienda(int tienda, String producto) {
         ArrayList<ModeloProductoTienda>lsProdTienda = new ArrayList<>();
         
          try {            
-            strSql = "exec usp_rptProductoTienda "+tienda+",'"+producto+"'";
-        
+            strSql = " exec usp_rptProductoTiendaWeb 0,''";
+             System.out.println(strSql);
             conexion.open();
             rs = conexion.executeQuery(strSql);                             
             
             while (rs.next()) {
-                ModeloProductoTienda ptienda = new ModeloProductoTienda();
-                ptienda.setNit(rs.getString(0));
-                ptienda.setNombretienda(rs.getString(1));
+               // ModeloProductoTienda mprot = new ModeloProductoTienda();
+                System.out.println(rs.getString(1));
+            //    ptienda.setNit(rs.getString(1));
+               // ptienda.setNombretienda(rs.getString(2));
               /*  user.setUsuario(rs.getString("usuario"));
                 user.setPassword(rs.getString("passwd"));
                 user.setCorreo(rs.getString("correo"));
@@ -69,7 +51,7 @@ public class DaoProductoTienda implements  CrudProductoTienda{
                */
 
                                 
-                lsProdTienda.add(ptienda);
+               // lsProdTienda.add(ptienda);
             }
             rs.close();
             conexion.close();
@@ -82,21 +64,5 @@ public class DaoProductoTienda implements  CrudProductoTienda{
              
          return lsProdTienda;
     }
-
-    @Override
-    public List listartodos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public ModeloUsuario listaruno(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public int loguear(String user, String pass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
    
 }
