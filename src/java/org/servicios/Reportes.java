@@ -10,7 +10,6 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.dao.DaoProductoTienda;
-import org.modelos.ModeloProductoTienda;
 
 /**
  *
@@ -24,7 +23,7 @@ public class Reportes {
      * Web service operation
      */
     @WebMethod(operationName = "ProductoTienda")
-    public List ProductoTienda(@WebParam(name = "codtienda") int codtienda, @WebParam(name = "codprod") String codprod) {
+    public List ProductoTienda(int codtienda, String codprod) {
         
         return daoProdTienda.produtoTienda(codtienda, codprod);
     }

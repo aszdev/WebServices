@@ -6,7 +6,6 @@
 package org.interfaces;
 
 import java.util.List;
-import org.modelos.ModeloUsuario;
 /**
  *
  * @author Administrador

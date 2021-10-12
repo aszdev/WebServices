@@ -7,7 +7,6 @@ package org.modelos;
 
 /**
  *
- * @author Jonathan
  */
 public class ModeloCliente {
     private int idCliente;

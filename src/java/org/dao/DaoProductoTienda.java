@@ -14,7 +14,6 @@ import org.config.Conexion;
 import org.interfaces.CrudProductoTienda;
 import org.modelos.ModeloProductoTienda;
 
-
 public class DaoProductoTienda implements  CrudProductoTienda{
 
     
@@ -29,19 +28,18 @@ public class DaoProductoTienda implements  CrudProductoTienda{
    
     @Override
     public List produtoTienda(int tienda, String producto) {
-        ArrayList<ModeloProductoTienda>lsProdTienda = new ArrayList<>();
-        
-         try {            
-            strSql = " exec usp_rptProductoTiendaWeb 0,''";
+        ArrayList<ModeloProductoTienda> lsProdTienda = new ArrayList<>();
+            try {            
+            strSql = " SELECT * FROM TIENDA";
              System.out.println(strSql);
             conexion.open();
             rs = conexion.executeQuery(strSql);                             
-            
+            ModeloProductoTienda   mt = null;
             while (rs.next()) {
-               // ModeloProductoTienda mprot = new ModeloProductoTienda();
-                System.out.println(rs.getString(1));
-            //    ptienda.setNit(rs.getString(1));
-               // ptienda.setNombretienda(rs.getString(2));
+              mt = new ModeloProductoTienda();
+             //   System.out.println(rs.getString(1));
+              mt.setNit(rs.getString("NIT"));
+              // ptienda.setNombretienda(rs.getString(2));
               /*  user.setUsuario(rs.getString("usuario"));
                 user.setPassword(rs.getString("passwd"));
                 user.setCorreo(rs.getString("correo"));
@@ -51,7 +49,7 @@ public class DaoProductoTienda implements  CrudProductoTienda{
                */
 
                                 
-               // lsProdTienda.add(ptienda);
+               lsProdTienda.add(mt);
             }
             rs.close();
             conexion.close();
