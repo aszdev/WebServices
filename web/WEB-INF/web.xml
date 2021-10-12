@@ -38,6 +38,15 @@
         <url-pattern>/Cliente</url-pattern>
     </servlet-mapping>
     
+      <servlet>
+        <servlet-name>Reportes</servlet-name>
+        <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Reportes</servlet-name>
+        <url-pattern>/Reportes</url-pattern>
+    </servlet-mapping>
     
     
     

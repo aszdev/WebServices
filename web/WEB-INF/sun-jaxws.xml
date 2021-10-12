@@ -3,4 +3,5 @@
     <endpoint implementation="org.servicios.Usuario" name="Usuario" url-pattern="/Usuario"/>
     <endpoint implementation="org.servicios.Rol" name="Rol" url-pattern="/Rol"/>
     <endpoint implementation="org.servicios.Cliente" name="Cliente" url-pattern="/Cliente"/>
+    <endpoint implementation="org.servicios.Reportes" name="Reportes" url-pattern="/Reportes"/>
 </endpoints>

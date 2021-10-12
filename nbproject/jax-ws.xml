@@ -10,6 +10,9 @@
     <service name="Usuario">
       <implementation-class>org.servicios.Usuario</implementation-class>
     </service>
+    <service name="Reportes">
+      <implementation-class>org.servicios.Reportes</implementation-class>
+    </service>
   </services>
   <clients/>
   <jsr109>false</jsr109>
