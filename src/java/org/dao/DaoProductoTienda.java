@@ -16,7 +16,7 @@ import org.modelos.ModeloPrueba;
 
 public class DaoProductoTienda implements  CrudProductoTienda{
 
-    
+       ModeloPrueba  melo = new ModeloPrueba();
     //Variable para crear las sentencias SQL
     String strSql =  "";
     //Se crea un obejto de tipo conexión para manejar la persistencia hacia la base de datos
@@ -29,33 +29,37 @@ public class DaoProductoTienda implements  CrudProductoTienda{
     @Override
     public List produtoTienda(int tienda, String producto) {
         ArrayList<ModeloPrueba> lsProdTienda = new ArrayList<>();
-            try {            
+           
+        
+        try {            
             strSql = " exec usp_rptProductoTiendaWeb "+tienda+",'"+producto+"'";
              System.out.println(strSql);
-            conexion.open();
-            rs = conexion.executeQuery(strSql);                             
+            //conexion.open();
+           // rs = conexion.executeQuery(strSql); 
+                  ModeloPrueba  mt = new ModeloPrueba();
            // ModeloProductoTienda   mt = null;
-            while (rs.next()) {
+           /* while (rs.next()) {
             ModeloPrueba  mt = new ModeloPrueba();
              System.out.println(rs.getString(1));
-              mt.setNit(rs.getString(1));
+              mt.setNit("Prueba");
               // ptienda.setNombretienda(rs.getString(2));
-              /*  user.setUsuario(rs.getString("usuario"));
+              user.setUsuario(rs.getString("usuario"));
                 user.setPassword(rs.getString("passwd"));
                 user.setCorreo(rs.getString("correo"));
                 user.setNombre(rs.getString("nombreusual"));
                 user.setEstatus(rs.getInt("activo"));
                 user.setFecha_mod(rs.getString("modificadoEl"));
-               */
+              
 
                                 
-             lsProdTienda.add(mt);
-            }
-            rs.close();
-            conexion.close();
+             //lsProdTienda.add(mt);
+            }*/
+            //rs.close();
+            //conexion.close();
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DaoProductoTienda.class.getName()).log(Level.SEVERE, null, ex);  
+            lsProdTienda.add(mt);
+            
+       
         } catch(Exception ex){
             Logger.getLogger(DaoProductoTienda.class.getName()).log(Level.SEVERE, null, ex);            
         }

@@ -17,14 +17,15 @@ import org.dao.DaoProductoTienda;
  */
 @WebService(serviceName = "Reportes")
 public class Reportes {
-   private  DaoProductoTienda daoProdTienda = new DaoProductoTienda();
-    
+
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "ProductoTienda")
-    public List ProductoTienda(int codtienda, String codprod) {
-        
-        return daoProdTienda.produtoTienda(codtienda, codprod);
+    @WebMethod(operationName = "ProductosTienda")
+    public List ProductosTienda(@WebParam(name = "tienda") int tienda, @WebParam(name = "codigo") String codigo) {
+        DaoProductoTienda daoprod = new DaoProductoTienda();
+        return daoprod.produtoTienda(tienda, codigo);
     }
+
+
 }

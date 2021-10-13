@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
-    <endpoint implementation="org.servicios.Usuario" name="Usuario" url-pattern="/Usuario"/>
-    <endpoint implementation="org.servicios.Rol" name="Rol" url-pattern="/Rol"/>
-    <endpoint implementation="org.servicios.Cliente" name="Cliente" url-pattern="/Cliente"/>
-    <endpoint implementation="org.servicios.Reportes" name="Reportes" url-pattern="/Reportes"/>
+  <endpoint implementation="org.servicios.Usuario" name="Usuario" url-pattern="/Usuario"/>
+  <endpoint implementation="org.servicios.Rol" name="Rol" url-pattern="/Rol"/>
+  <endpoint implementation="org.servicios.Cliente" name="Cliente" url-pattern="/Cliente"/>
+  <endpoint implementation="org.servicios.Reportes" name="Reportes" url-pattern="/Reportes"/>
 </endpoints>

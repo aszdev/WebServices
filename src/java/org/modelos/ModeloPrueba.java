@@ -11,6 +11,10 @@ package org.modelos;
  */
 public class ModeloPrueba {
     private String nit;
+    
+    public ModeloPrueba(){
+        
+    }
     /**
      * @return the nit
      */
