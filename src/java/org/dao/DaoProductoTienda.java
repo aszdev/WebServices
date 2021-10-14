@@ -12,11 +12,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.config.Conexion;
 import org.interfaces.CrudProductoTienda;
+import org.modelos.ModeloProductoTienda;
 import org.modelos.ModeloPrueba;
 
 public class DaoProductoTienda implements  CrudProductoTienda{
 
-       ModeloPrueba  melo = new ModeloPrueba();
     //Variable para crear las sentencias SQL
     String strSql =  "";
     //Se crea un obejto de tipo conexión para manejar la persistencia hacia la base de datos
@@ -28,36 +28,37 @@ public class DaoProductoTienda implements  CrudProductoTienda{
    
     @Override
     public List produtoTienda(int tienda, String producto) {
-        ArrayList<ModeloPrueba> lsProdTienda = new ArrayList<>();
+        ArrayList<ModeloProductoTienda> lsProdTienda = new ArrayList<>();
            
         
         try {            
-            strSql = " exec usp_rptProductoTiendaWeb "+tienda+",'"+producto+"'";
+            strSql = " exec usp_rptProductoTienda "+tienda+",'"+producto+"'";
              System.out.println(strSql);
-            //conexion.open();
-           // rs = conexion.executeQuery(strSql); 
-                  ModeloPrueba  mt = new ModeloPrueba();
+            conexion.open();
+            rs = conexion.executeQuery(strSql); 
+                 
            // ModeloProductoTienda   mt = null;
-           /* while (rs.next()) {
-            ModeloPrueba  mt = new ModeloPrueba();
-             System.out.println(rs.getString(1));
-              mt.setNit("Prueba");
-              // ptienda.setNombretienda(rs.getString(2));
-              user.setUsuario(rs.getString("usuario"));
-                user.setPassword(rs.getString("passwd"));
-                user.setCorreo(rs.getString("correo"));
-                user.setNombre(rs.getString("nombreusual"));
-                user.setEstatus(rs.getInt("activo"));
-                user.setFecha_mod(rs.getString("modificadoEl"));
-              
-
+         while (rs.next()) {
+          
+            ModeloProductoTienda ptienda = new ModeloProductoTienda();  
+   
+                        ptienda.setNit(rs.getString("Nit Tienda"));
+                        ptienda.setNombretienda(rs.getString("Nombre Tienda"));
+                        ptienda.setDireccion(rs.getString("Direccion Tienda"));
+                        ptienda.setCodigoprod(rs.getString("Codigo Producto"));
+                        ptienda.setNombreProducto(rs.getString("Nombre Producto"));
+                        ptienda.setDescripcion(rs.getString("Descripcion Producto"));
+                        ptienda.setStock(rs.getInt("Stock en tienda"));
+                        ptienda.setPrecioCompra(rs.getInt("Precio Compra"));
+                        ptienda.setPrecioVenta(rs.getInt("Precio Venta"));
                                 
-             //lsProdTienda.add(mt);
-            }*/
-            //rs.close();
-            //conexion.close();
+                lsProdTienda.add(ptienda);
+            }
             
-            lsProdTienda.add(mt);
+            rs.close();
+            conexion.close();
+            
+            
             
        
         } catch(Exception ex){
